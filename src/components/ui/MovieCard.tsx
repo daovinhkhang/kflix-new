@@ -13,9 +13,9 @@ interface MovieCardProps {
 
 export function MovieCard({ movie, size = 'medium', className }: MovieCardProps) {
   const cardSize = {
-    small: 'w-[150px]',
-    medium: 'w-[200px]',
-    large: 'w-[250px]'
+    small: 'w-full max-w-[150px]',
+    medium: 'w-full max-w-[200px]',
+    large: 'w-full max-w-[250px]'
   }[size]
 
   return (
@@ -96,7 +96,7 @@ export function MovieGrid({ movies, title, size = 'medium', className }: MovieGr
         <h2 className="text-2xl font-bold text-white">{title}</h2>
       )}
       
-      <div className={cn('grid gap-4', gridCols)}>
+      <div className={cn('grid gap-3 sm:gap-4 md:gap-6', gridCols)}>
         {movies.map((movie) => (
           <MovieCard
             key={movie.id}

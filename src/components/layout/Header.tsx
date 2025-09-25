@@ -15,8 +15,8 @@ export function Header() {
         {/* Mobile layout */}
         <div className="flex w-full items-center justify-between lg:hidden">
           {/* Hamburger menu placeholder */}
-          <button className="flex h-8 w-8 items-center justify-center rounded-md text-gray-400 hover:text-white">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-gray-400 hover:text-white">
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
@@ -48,7 +48,7 @@ export function Header() {
           </div>
 
           {/* Logo on mobile */}
-          <Link href="/" className="text-lg font-bold text-white">
+          <Link href="/" className="shrink-0 text-lg font-bold text-white">
             K<span className="text-primary-500">FLIX</span>
           </Link>
         </div>

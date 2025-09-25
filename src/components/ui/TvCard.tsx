@@ -13,9 +13,9 @@ interface TvCardProps {
 
 export function TvCard({ show, size = 'medium', className }: TvCardProps) {
   const cardSize = {
-    small: 'w-[150px]',
-    medium: 'w-[200px]',
-    large: 'w-[250px]'
+    small: 'w-full max-w-[150px]',
+    medium: 'w-full max-w-[200px]',
+    large: 'w-full max-w-[250px]'
   }[size]
 
   return (
@@ -94,7 +94,7 @@ export function TvGrid({ shows, size = 'medium', className }: TvGridProps) {
   }[size]
 
   return (
-    <div className={cn('grid gap-4', gridCols, className)}>
+    <div className={cn('grid gap-3 sm:gap-4 md:gap-6', gridCols, className)}>
       {shows.map((show) => (
         <TvCard
           key={show.id}
@@ -109,9 +109,9 @@ export function TvGrid({ shows, size = 'medium', className }: TvGridProps) {
 // Loading placeholder
 export function TvCardSkeleton({ size = 'medium' }: { size?: 'small' | 'medium' | 'large' }) {
   const cardSize = {
-    small: 'w-[150px]',
-    medium: 'w-[200px]',
-    large: 'w-[250px]'
+    small: 'w-full max-w-[150px]',
+    medium: 'w-full max-w-[200px]',
+    large: 'w-full max-w-[250px]'
   }[size]
 
   return (
