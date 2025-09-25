@@ -11,7 +11,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-gray-800 bg-gray-900/95 backdrop-blur supports-[backdrop-filter]:bg-gray-900/60">
-      <div className="flex h-16 items-center justify-between px-4 lg:px-6">
+      <div className="flex h-16 items-center justify-between px-4 py-2 sm:px-6 sm:py-3">
         {/* Left side - Search */}
         <div className="flex flex-1 items-center space-x-4 lg:space-x-6">
           <div className="w-full max-w-lg lg:max-w-xs xl:max-w-lg">
