@@ -29,7 +29,6 @@ export function WatchlistButton({ item, size = 'md', variant = 'default' }: Watc
   const { addToast } = useToast()
 
   const title = item.title || item.name || ''
-  const releaseDate = item.release_date || item.first_air_date || ''
 
   const watchlistItem: Omit<WatchlistItem, 'added_at'> = {
     id: item.id,
@@ -137,14 +136,7 @@ export function ShareButton({ item, size = 'md', variant = 'default' }: ShareBut
     hashtags: ['KFLIX', 'FreeMovies', 'Streaming']
   }
 
-  const handleNativeShare = async () => {
-    const success = await shareNative(shareOptions)
-    if (success) {
-      addToast('Shared successfully!', 'success')
-    } else {
-      setIsOpen(true) // Fallback to custom share modal
-    }
-  }
+
 
   const handleCopyLink = async () => {
     const success = await copyToClipboard(url)
@@ -157,7 +149,7 @@ export function ShareButton({ item, size = 'md', variant = 'default' }: ShareBut
     }
   }
 
-  const handlePlatformShare = (platform: any) => {
+  const handlePlatformShare = (platform: { name: string; action: (options: ShareOptions) => void }) => {
     platform.action(shareOptions)
     setIsOpen(false)
   }
@@ -197,7 +189,7 @@ export function ShareButton({ item, size = 'md', variant = 'default' }: ShareBut
           <div className="bg-gray-900 rounded-lg max-w-md w-full max-h-[80vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-white">Share "{title}"</h3>
+                <h3 className="text-xl font-bold text-white">Share &quot;{title}&quot;</h3>
                 <button
                   onClick={() => setIsOpen(false)}
                   className="text-gray-400 hover:text-white"

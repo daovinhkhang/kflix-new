@@ -6,12 +6,9 @@ import {
   Star, 
   Calendar, 
   Play, 
-  Heart, 
-  Share,
   User,
   Tv,
-  ChevronRight,
-  Clock
+  ChevronRight
 } from 'lucide-react'
 import { tvApi } from '@/services/tmdb'
 import { generateTvMetadata, generateTvShowJsonLd } from '@/lib/seo'
@@ -46,7 +43,6 @@ async function TvContent({ id }: { id: number }) {
     ])
 
     const director = tmdbUtils.getDirector(credits.crew)
-    const mainTrailer = tmdbUtils.getMainTrailer(videos.results)
 
     const jsonLd = generateTvShowJsonLd(tvShow)
 

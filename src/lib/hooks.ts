@@ -58,7 +58,7 @@ export function useWatchlist() {
         saveToStorage(updated)
         return updated
       })
-    } catch (err) {
+    } catch {
       setError('Failed to add item to watchlist')
     } finally {
       setIsLoading(false)
@@ -76,7 +76,7 @@ export function useWatchlist() {
         saveToStorage(updated)
         return updated
       })
-    } catch (err) {
+    } catch {
       setError('Failed to remove item from watchlist')
     } finally {
       setIsLoading(false)
@@ -96,7 +96,7 @@ export function useWatchlist() {
     try {
       setItems([])
       localStorage.removeItem('kflix_watchlist')
-    } catch (err) {
+    } catch {
       setError('Failed to clear watchlist')
     } finally {
       setIsLoading(false)
@@ -133,8 +133,7 @@ export function useShare() {
         url: options.url
       })
       return true
-    } catch (err) {
-      console.error('Error sharing:', err)
+    } catch {
       return false
     }
   }, [isSupported])

@@ -7,8 +7,6 @@ import {
   Calendar, 
   Clock, 
   Play, 
-  Heart, 
-  Share,
   User
 } from 'lucide-react'
 import { movieApi } from '@/services/tmdb'
@@ -44,7 +42,6 @@ async function MovieContent({ id }: { id: number }) {
     ])
 
     const director = tmdbUtils.getDirector(credits.crew)
-    const mainTrailer = tmdbUtils.getMainTrailer(videos.results)
 
     const jsonLd = generateMovieJsonLd(movie)
 

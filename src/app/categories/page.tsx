@@ -1,5 +1,5 @@
 import { generateBaseMetadata } from '@/lib/seo'
-import { Film, Tv, TrendingUp, Star, Play, Calendar, Sword, Heart, Laugh, Shield, Eye, Music, Search, Zap, Crown, Ghost, Palette, Users, Sparkles, Target } from 'lucide-react'
+import { Film, Tv, TrendingUp, Star, Play, Calendar, Sword, Heart, Laugh, Shield, Eye, Zap, Crown, Ghost, Palette, Users, Sparkles, Target } from 'lucide-react'
 import Link from 'next/link'
 
 export const metadata = generateBaseMetadata(

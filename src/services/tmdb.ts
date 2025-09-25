@@ -32,7 +32,7 @@ async function fetchFromTMDB<T>(endpoint: string): Promise<T> {
     return response.data
   } catch (error) {
     console.error('TMDB API Error:', error)
-    console.error('Error response:', (error as any)?.response?.data)
+    console.error('Error response:', (error as { response?: { data?: unknown } })?.response?.data)
     throw new Error(`Failed to fetch data from TMDB: ${error}`)
   }
 }

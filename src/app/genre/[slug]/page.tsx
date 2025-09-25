@@ -85,7 +85,7 @@ async function GenreMoviesContent({ genreId, genreName }: { genreId: number; gen
   }
 }
 
-function LoadingSkeleton({ genreName }: { genreName: string }) {
+function LoadingSkeleton() {
   return (
     <div className="space-y-12 px-6 py-8 lg:px-8">
       <div className="mx-auto max-w-7xl">
@@ -125,7 +125,7 @@ export default async function GenrePage({ params }: GenrePageProps) {
 
   return (
     <div className="min-h-screen bg-gray-950">
-      <Suspense fallback={<LoadingSkeleton genreName={genreName} />}>
+      <Suspense fallback={<LoadingSkeleton />}>
         <GenreMoviesContent genreId={genreId} genreName={genreName} />
       </Suspense>
     </div>

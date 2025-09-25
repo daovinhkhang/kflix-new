@@ -5,14 +5,12 @@ import { Suspense } from 'react'
 import { 
   Star, 
   Calendar, 
-  Clock, 
   Play, 
   ArrowLeft,
   Tv
 } from 'lucide-react'
 import { tvApi } from '@/services/tmdb'
 import { tmdbUtils } from '@/services/tmdb'
-import { getTvStreamingSources } from '@/lib/constants'
 
 interface SeasonPageProps {
   params: Promise<{

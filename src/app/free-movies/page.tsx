@@ -139,12 +139,12 @@ async function FreeMoviesContent() {
         </div>
       </div>
     )
-  } catch (error) {
+  } catch {
     return (
       <div className="min-h-screen bg-gray-950 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-white mb-4">Free Movies Coming Soon</h1>
-          <p className="text-gray-400">We're preparing an amazing collection of free movies for you.</p>
+          <p className="text-gray-400">We&apos;re preparing an amazing collection of free movies for you.</p>
         </div>
       </div>
     )

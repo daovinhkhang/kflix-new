@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { Heart, Trash2, Play, Calendar, Star } from 'lucide-react'
 import { useWatchlist } from '@/lib/hooks'
 import { tmdbUtils } from '@/services/tmdb'
-import { WatchlistButton } from '@/components/ui/WatchlistShare'
 
 export function WatchlistContent() {
   const { items, removeFromWatchlist, clearWatchlist, isLoading } = useWatchlist()
