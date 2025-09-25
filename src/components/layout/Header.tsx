@@ -10,8 +10,8 @@ export function Header() {
   const [searchQuery, setSearchQuery] = useState('')
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-gray-800 bg-gray-900/95 backdrop-blur supports-[backdrop-filter]:bg-gray-900/60">
-      <div className="flex h-14 items-center justify-between px-4 sm:h-16 sm:px-6">
+    <header className="sticky top-0 z-40 w-full border-b border-gray-800 bg-gray-900/95 backdrop-blur supports-[backdrop-filter]:bg-gray-900/60 pt-[env(safe-area-inset-top)]">
+      <div className="flex items-center justify-between px-4 py-2 sm:px-6 sm:py-3">
         {/* Mobile layout */}
         <div className="flex w-full items-center justify-between lg:hidden">
           {/* Hamburger menu placeholder */}
