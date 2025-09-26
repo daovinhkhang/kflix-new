@@ -4,6 +4,7 @@ import "./globals.css";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Header } from "@/components/layout/Header";
 import { generateBaseMetadata } from "@/lib/seo";
+import AdsScript from "@/components/AdsScript";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,7 +41,6 @@ export default function RootLayout({
         <meta name="theme-color" content="#1e40af" />
         <meta name="msapplication-TileColor" content="#1e40af" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <script src="https://fpyf8.com/88/tag.min.js" data-zone="173742" async data-cfasync="false"></script>
       </head>
       <body className={`${inter.className} bg-gray-950 text-white antialiased`}>
         <div className="flex min-h-screen">
@@ -55,6 +55,7 @@ export default function RootLayout({
             </main>
           </div>
         </div>
+        <AdsScript />
       </body>
     </html>
   );
