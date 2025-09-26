@@ -5,15 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
-        disallow: [
-          '/private/',
-          '/admin/',
-          '/api/',
-          '/_next/',
-          '/static/'
-        ],
-        crawlDelay: 1
+        disallow: ['/']  // Chặn tất cả bot khác
       },
       {
         userAgent: 'Googlebot',
@@ -24,8 +16,8 @@ export default function robots(): MetadataRoute.Robots {
           '/api/',
           '/_next/',
           '/static/'
-        ],
-        crawlDelay: 0
+        ]
+        // Không có crawlDelay để thả bung sức mạnh
       },
       {
         userAgent: 'Bingbot',
@@ -36,32 +28,8 @@ export default function robots(): MetadataRoute.Robots {
           '/api/',
           '/_next/',
           '/static/'
-        ],
-        crawlDelay: 1
-      },
-      {
-        userAgent: 'Yandex',
-        allow: '/',
-        disallow: [
-          '/private/',
-          '/admin/',
-          '/api/',
-          '/_next/',
-          '/static/'
-        ],
-        crawlDelay: 2
-      },
-      {
-        userAgent: 'Baiduspider',
-        allow: '/',
-        disallow: [
-          '/private/',
-          '/admin/',
-          '/api/',
-          '/_next/',
-          '/static/'
-        ],
-        crawlDelay: 3
+        ]
+        // Không có crawlDelay để thả bung sức mạnh
       }
     ],
     sitemap: 'https://kflix.space/sitemap.xml',
