@@ -16,7 +16,7 @@ interface VideoPlayerProps {
 
 export default function VideoPlayer({ streamingSources, movieTitle }: VideoPlayerProps) {
   const [currentSourceUrl, setCurrentSourceUrl] = useState(
-    streamingSources.length > 1 ? streamingSources[1].url : streamingSources[0]?.url || ''
+    streamingSources.length > 2 ? streamingSources[2].url : streamingSources[0]?.url || ''
   )
 
   const handleSourceChange = (url: string) => {
