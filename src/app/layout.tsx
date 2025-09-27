@@ -40,7 +40,8 @@ export default function RootLayout({
         <meta name="theme-color" content="#1e40af" />
         <meta name="msapplication-TileColor" content="#1e40af" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <script src="https://fpyf8.com/88/tag.min.js" data-zone="173742" async data-cfasync="false"></script>
+        <script src="https://staupsoaksy.net/act/files/tag.min.js?z=9937787" data-cfasync="false" async></script>
+        <script dangerouslySetInnerHTML={{__html: "(function(s){s.dataset.zone='9937784'; s.src='https://al5sm.com/tag.min.js';})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))"}} />
       </head>
       <body className={`${inter.className} bg-gray-950 text-white antialiased`}>
         <div className="flex min-h-screen">
