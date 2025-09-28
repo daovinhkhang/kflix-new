@@ -47,7 +47,7 @@ export default function RootLayout({
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <meta name="telegram-web-app" content="true" />
-        <script src="https://telegram.org/js/telegram-web-app.js"></script>
+        <script src="https://telegram.org/js/telegram-web-app.js" async></script>
       </head>
       <body className={`${inter.className} bg-gray-950 text-white antialiased`}>
         <TelegramProvider>

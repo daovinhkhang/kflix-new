@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "NODE_OPTIONS=\"--no-deprecation\" next dev --turbopack",
-    "build": "NODE_OPTIONS=\"--no-deprecation\" next build --turbopack",
-    "start": "NODE_OPTIONS=\"--no-deprecation\" next start -p $PORT",
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
     "lint": "eslint",
     "type-check": "tsc --noEmit"
   },
@@ -17,7 +17,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.8",
     "@tailwindcss/line-clamp": "^0.4.4",
-    "@telegram-apps/sdk-react": "^3.3.7",
+    "@tma.js/sdk-react": "^2.2.8",
     "axios": "^1.12.2",
     "clsx": "^2.1.1",
     "critters": "^0.0.23",

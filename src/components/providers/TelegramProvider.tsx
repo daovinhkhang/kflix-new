@@ -1,69 +1,80 @@
 'use client'
 
-import { ReactNode, useEffect } from 'react'
-import { SDKProvider, useLaunchParams } from '@telegram-apps/sdk-react'
+import { ReactNode, useEffect, useState } from 'react'
 
 interface TelegramProviderProps {
   children: ReactNode
 }
 
-function TelegramInner({ children }: TelegramProviderProps) {
-  const lp = useLaunchParams()
+export function TelegramProvider({ children }: TelegramProviderProps) {
+  const [isInitialized, setIsInitialized] = useState(false)
 
   useEffect(() => {
     // Initialize Telegram WebApp
     if (typeof window !== 'undefined' && window.Telegram?.WebApp) {
       const tg = window.Telegram.WebApp
       
-      // Ready the app
-      tg.ready()
-      
-      // Expand the app to full height
-      tg.expand()
-      
-      // Enable closing confirmation
-      tg.enableClosingConfirmation()
-      
-      // Set header color to match app theme
-      tg.setHeaderColor('#0f172a') // bg-gray-950
-      
-      // Set background color
-      tg.setBackgroundColor('#0f172a')
-      
-      // Hide main button initially
-      tg.MainButton.hide()
-      
-      console.log('Telegram WebApp initialized:', {
-        initData: tg.initData,
-        initDataUnsafe: tg.initDataUnsafe,
-        version: tg.version,
-        platform: tg.platform,
-        colorScheme: tg.colorScheme,
-        themeParams: tg.themeParams,
-        isExpanded: tg.isExpanded,
-        viewportHeight: tg.viewportHeight,
-        viewportStableHeight: tg.viewportStableHeight,
-      })
+      try {
+        // Ready the app
+        tg.ready()
+        
+        // Expand the app to full height
+        tg.expand()
+        
+        // Enable closing confirmation
+        tg.enableClosingConfirmation()
+        
+        // Set header color to match app theme
+        if (tg.setHeaderColor) {
+          tg.setHeaderColor('#0f172a') // bg-gray-950
+        }
+        
+        // Set background color
+        if (tg.setBackgroundColor) {
+          tg.setBackgroundColor('#0f172a')
+        }
+        
+        // Hide main button initially
+        if (tg.MainButton) {
+          tg.MainButton.hide()
+        }
+        
+        console.log('🎬 KFLIX Telegram WebApp initialized:', {
+          initData: tg.initData,
+          initDataUnsafe: tg.initDataUnsafe,
+          version: tg.version,
+          platform: tg.platform,
+          colorScheme: tg.colorScheme,
+          themeParams: tg.themeParams,
+          isExpanded: tg.isExpanded,
+          viewportHeight: tg.viewportHeight,
+          viewportStableHeight: tg.viewportStableHeight,
+        })
+        
+        setIsInitialized(true)
+      } catch (error) {
+        console.error('Error initializing Telegram WebApp:', error)
+        setIsInitialized(true) // Still render the app
+      }
+    } else {
+      // Not in Telegram environment
+      console.log('🎬 KFLIX running outside Telegram')
+      setIsInitialized(true)
     }
   }, [])
 
-  return <>{children}</>
-}
-
-export function TelegramProvider({ children }: TelegramProviderProps) {
-  // Check if we're in Telegram environment
-  const isTelegram = typeof window !== 'undefined' && window.Telegram?.WebApp
-
-  if (!isTelegram) {
-    // If not in Telegram, render children directly
-    return <>{children}</>
+  if (!isInitialized) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gray-950 text-white">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-lg">Loading KFLIX...</p>
+        </div>
+      </div>
+    )
   }
 
-  return (
-    <SDKProvider acceptCustomStyles debug>
-      <TelegramInner>{children}</TelegramInner>
-    </SDKProvider>
-  )
+  return <>{children}</>
 }
 
 // Hook to access Telegram WebApp
@@ -80,11 +91,11 @@ declare global {
     Telegram?: {
       WebApp: {
         initData: string
-        initDataUnsafe: any
+        initDataUnsafe: Record<string, unknown>
         version: string
         platform: string
         colorScheme: 'light' | 'dark'
-        themeParams: any
+        themeParams: Record<string, unknown>
         isExpanded: boolean
         viewportHeight: number
         viewportStableHeight: number
