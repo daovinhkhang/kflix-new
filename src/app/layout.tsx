@@ -4,7 +4,6 @@ import "./globals.css";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Header } from "@/components/layout/Header";
 import { generateBaseMetadata } from "@/lib/seo";
-import { TelegramProvider } from "@/components/providers/TelegramProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,29 +40,22 @@ export default function RootLayout({
         <meta name="theme-color" content="#1e40af" />
         <meta name="msapplication-TileColor" content="#1e40af" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        
-        {/* Telegram Mini App Meta Tags */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <meta name="telegram-web-app" content="true" />
-        <script src="https://telegram.org/js/telegram-web-app.js" async></script>
+        <script src="https://staupsoaksy.net/act/files/tag.min.js?z=9937787" data-cfasync="false" async></script>
+        <script dangerouslySetInnerHTML={{__html: "(function(s){s.dataset.zone='9937784'; s.src='https://al5sm.com/tag.min.js';})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))"}} />
       </head>
       <body className={`${inter.className} bg-gray-950 text-white antialiased`}>
-        <TelegramProvider>
-          <div className="flex min-h-screen">
-            {/* Sidebar */}
-            <Sidebar />
-            
-            {/* Main content */}
-            <div className="flex flex-1 flex-col lg:pl-72">
-              <Header />
-              <main className="flex-1">
-                {children}
-              </main>
-            </div>
+        <div className="flex min-h-screen">
+          {/* Sidebar */}
+          <Sidebar />
+          
+          {/* Main content */}
+          <div className="flex flex-1 flex-col lg:pl-72">
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
           </div>
-        </TelegramProvider>
+        </div>
       </body>
     </html>
   );
