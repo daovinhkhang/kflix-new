@@ -9,6 +9,16 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'Inter', system-ui, sans-serif;
+  /* Telegram Mini App specific styles */
+  overscroll-behavior: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 /* Custom scrollbar */
@@ -35,6 +45,7 @@ body {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+  line-clamp: 1;
 }
 
 .line-clamp-2 {
@@ -42,6 +53,7 @@ body {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
 }
 
 .line-clamp-3 {
@@ -49,4 +61,53 @@ body {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+/* Telegram Mini App specific styles */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Allow text selection for specific elements */
+input, textarea, [contenteditable] {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+/* Telegram Mini App viewport adjustments */
+.telegram-viewport {
+  height: 100vh;
+  height: var(--tg-viewport-height, 100vh);
+  overflow: hidden;
+}
+
+/* Responsive design for Telegram */
+@media (max-width: 768px) {
+  .lg\:pl-72 {
+    padding-left: 0 !important;
+  }
+}
+
+/* Telegram theme integration */
+:root {
+  --tg-theme-bg-color: var(--tg-theme-bg-color, #0f172a);
+  --tg-theme-text-color: var(--tg-theme-text-color, #ffffff);
+  --tg-theme-hint-color: var(--tg-theme-hint-color, #64748b);
+  --tg-theme-link-color: var(--tg-theme-link-color, #3b82f6);
+  --tg-theme-button-color: var(--tg-theme-button-color, #1e40af);
+  --tg-theme-button-text-color: var(--tg-theme-button-text-color, #ffffff);
+}
+
+/* Hide scrollbars in Telegram */
+.telegram-scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.telegram-scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
