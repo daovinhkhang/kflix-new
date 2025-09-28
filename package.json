@@ -17,7 +17,6 @@
   "dependencies": {
     "@headlessui/react": "^2.2.8",
     "@tailwindcss/line-clamp": "^0.4.4",
-    "@tma.js/sdk-react": "^2.2.8",
     "axios": "^1.12.2",
     "clsx": "^2.1.1",
     "critters": "^0.0.23",
